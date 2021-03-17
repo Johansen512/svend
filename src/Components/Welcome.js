@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 const Welcome = () => {
     
     const backgroundstyle = css`
-    position:absolute;
+    position:relative;
     height:100%;
     width:300%;
     Top:0;
@@ -17,7 +17,7 @@ const Welcome = () => {
     const imagestyle=css`
     height:100%;
     width:100%;
-    border: solid 5px yellow;
+    
     
     `;
 
@@ -25,10 +25,11 @@ const Welcome = () => {
     display: flex;
     justify-content: center;
     flex-direction:column;
-        position:relative;
-        color: white;
-        margin-bottom:0;
-        border: green solid 5px;
+    position:absolute;
+    color: white;
+    bottom:0;
+    margin:0;
+        
 
 
 
