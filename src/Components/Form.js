@@ -2,7 +2,7 @@
 import { dataContext } from "../Contexts/DataContext";
 import {useContext} from "react";
 import { useForm } from "react-hook-form";
-import { navigate, Redirect, redirectTo } from "@reach/router";
+//import { navigate, Redirect, redirectTo } from "@reach/router";
 /*import { toast } from "react-toastify";
 import Mytoast from "./Mytoast";*/
 
