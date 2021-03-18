@@ -1,6 +1,5 @@
 import React, { createContext, useState} from "react";
 import { toast } from "react-toastify";
-//import Testicon from "../Components/Testicon";
 export const dataContext = createContext();
 
 const DataContextProvider = (props) => {
@@ -28,14 +27,14 @@ const notify = () => {
   } else {
     
 
-    toast.info("Logger lige ind", {
+    toast.success("Logger lige ind", {
       toastId: "myToastId",
       autoClose: false,
       
       
      
     });
-   // toast(<Testicon />)
+   
 
   }
   
@@ -52,12 +51,12 @@ const login = (username, password) =>{
       console.log (username, password)
       notify ();
       fetch("http://localhost:4000/auth/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `username=${username}&password=${password}`,
-      })
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  "body": `username=${username}&password=${password}`
+})
       .then((response) => response.json())
       .then ((result) => {
         toast.dismiss();
