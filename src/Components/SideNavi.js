@@ -8,7 +8,7 @@ import { Link } from "@reach/router";
 
 
 
-const Navigation = () => {
+const SideNavi = () => {
 
 
     const linkstyle=css`
@@ -29,10 +29,10 @@ const Navigation = () => {
     
     
     <>
-   <SideBar bgColor={"red"} iconColor={'yellow'}>
+   <SideBar bgColor={"white"} iconColor={'black'}>
    <Link to="Home" css={linkstyle}> Home</Link>  
-<Link to="Search" css={linkstyle}> Search</Link> 
-<Link to="Schedule"css={linkstyle} > My Schedule </Link> 
+<Link to="../Search" css={linkstyle}> Search</Link> 
+<Link to="../Schedule"css={linkstyle} > My Schedule </Link> 
 <Link to="" css={linkstyle}> Log ud </Link> 
  
       <SideBarItem></SideBarItem>
@@ -46,5 +46,4 @@ const Navigation = () => {
     
     </>  );
 }
- 
-export default Navigation;
+export default SideNavi;
