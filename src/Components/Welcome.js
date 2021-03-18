@@ -1,8 +1,16 @@
 /**@jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import {Link } from "@reach/router";
 
 
 const Welcome = () => {
+
+    const wrapper=css`
+
+   height:100vh;
+  
+   `;
+    
     
     const backgroundstyle = css`
     position:relative;
@@ -45,12 +53,12 @@ h1{
 
    `;
 
-   const wrapper=css`
+   const linkStyle=css`
+       background-color:var(--color-primary);
 
-   height:100vh;
-  
-   `;
-    
+   
+`;
+   
     
     return ( 
 <>
@@ -60,8 +68,8 @@ h1{
 <h1>Believe <br />Yourself</h1>
 <p>- Train like a Pro</p>
 <img css={imagestyle} src="../img/center.jpg" alt="girl sweating" />
-<button>Start Trainning</button>
 
+<Link to="Home" css={linkStyle}>Start Trainning</Link> 
 
 </div>
 </div>
