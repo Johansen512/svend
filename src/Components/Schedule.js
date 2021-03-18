@@ -4,8 +4,16 @@ const Schedule = () => {
     return ( 
         <>
 
-        <h1>My Schedule</h1>
-        <SideNavi /></>
+        <header><div>IKON</div><h1>My Schedule</h1>
+        <SideNavi /></header>
+
+        <ul>
+            <li>
+                <h3>Class Name here</h3>
+                <p></p>
+                
+                </li>
+        </ul></>
      );
 }
  
