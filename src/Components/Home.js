@@ -1,6 +1,26 @@
+/**@jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+import { SideBar, SideBarItem } from 'react-burger-sidenav';
+import 'react-burger-sidenav/dist/index.css';
+import { Link } from "@reach/router";
+
 import { useState, useEffect} from "react";
 
 const Home = () => {
+
+  const linkstyle=css`
+
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: flex-end;
+  margin: 0.1rem;
+  
+  
+ 
+
+  
+  `;
 
   const [topClass, setTopClass] = useState (null);
   const [allClasses, setAllClasses] = useState (null);
@@ -54,7 +74,8 @@ useEffect(() => {
 
     return  (
 <>
-       <div><h2>Popular Classes</h2></div> 
+       <div><h2>Popular Classes</h2> </div> 
+       
 
         <div><img src={topClass?.asset.url} alt="" /></div>
         <button>{topClass?.className}</button>
@@ -81,6 +102,14 @@ useEffect(() => {
 
 </ul>
 
+<SideBar bgColor={"red"} iconColor={'yellow'}>
+   <Link to="Home" css={linkstyle}> Home</Link>  
+<Link to="Search" css={linkstyle}> Search</Link> 
+<Link to="Schedule"css={linkstyle} > My Schedule </Link> 
+<Link to="" css={linkstyle}> Log ud </Link> 
+ 
+      <SideBarItem></SideBarItem>
+    </SideBar>
         
         </>
       );
