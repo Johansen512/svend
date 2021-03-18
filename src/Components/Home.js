@@ -3,11 +3,13 @@ import { useState, useEffect} from "react";
 const Home = () => {
 
   const [topClass, setTopClass] = useState (null);
+  const [allClasses, setAllClasses] = useState (null);
+  
 
 
 
   
-
+//Her fetch til topbillede
    
     useEffect(() => {
     
@@ -23,6 +25,24 @@ const Home = () => {
   }, []);
     
     console.log (topClass)
+
+
+//Her Fetch til alle hold
+
+useEffect(() => {
+    
+  fetch("http://localhost:4000/api/v1/classes", {
+    "method": "GET"
+  })
+  .then((response) => response.json())
+  .then (result => setAllClasses(result))
+  .catch(err => console.error(err));
+
+
+    
+}, []);
+  
+  console.log (allClasses)
    
 
   /*fetch("http://localhost:4000/api/v1/classes/3", {
@@ -40,10 +60,28 @@ const Home = () => {
         <button>{topClass?.className}</button>
 
         <div>
-          <h3>Classes for you</h3>
-<p>FEED HERE</p>
+          <h3>Classes for you</h3></div>
 
-        </div>
+<ul>{allClasses?.map((oneClass => (
+
+
+
+
+<li>
+<img  src={oneClass?.asset.url} alt="" /> 
+<p>{oneClass?.className}</p>
+
+</li>
+
+)
+
+
+
+))}
+
+</ul>
+
+        
         </>
       );
 }
