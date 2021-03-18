@@ -1,3 +1,5 @@
+/**@jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import { useState, useEffect} from "react";
 import SideNavi from "../Components/SideNavi";
 
@@ -46,11 +48,28 @@ useEffect(() => {
   console.log (allClasses)
    
 
-  /*fetch("http://localhost:4000/api/v1/classes/3", {
-  "method": "GET"
-})
-.then(response => console.log(response))
-.catch(err => console.error(err));*/
+const AllClassesStyle=css`
+display:flex;
+flex-direction:row;
+
+
+`;
+
+const miniboxStyle=css`
+margin: 1em;
+overflow-x: scroll;
+
+img{
+  height:200%;
+  width:200%;
+  
+  
+  
+}
+
+
+
+`;
 
 
     return  (
@@ -64,16 +83,16 @@ useEffect(() => {
         <div>
           <h3>Classes for you</h3></div>
 
-<ul>{allClasses?.map((oneClass => (
+<ul css={AllClassesStyle}>{allClasses?.map((oneClass => (
 
 
-
+<div css={miniboxStyle}>
 
 <li>
 <img  src={oneClass?.asset.url} alt="" /> 
 <p>{oneClass?.className}</p>
 
-</li>
+</li></div>
 
 )
 

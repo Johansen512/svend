@@ -30,7 +30,7 @@ const SideNavi = () => {
     
     <>
    <SideBar bgColor={"white"} iconColor={'black'}>
-   <Link to="Home" css={linkstyle}> Home</Link>  
+   <Link to="../Home" css={linkstyle}> Home</Link>  
 <Link to="../Search" css={linkstyle}> Search</Link> 
 <Link to="../Schedule"css={linkstyle} > My Schedule </Link> 
 <Link to="" css={linkstyle}> Log ud </Link> 
