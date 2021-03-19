@@ -1,11 +1,12 @@
-import React, { createContext, useState} from "react";
+import React, { createContext, useState, useEffect} from "react";
 import { toast } from "react-toastify";
 export const dataContext = createContext();
+
 
 const DataContextProvider = (props) => {
 
     const [data, setData] = useState(null);
-   
+    const [allClasses, setAllClasses] = useState (null);
 
 
       //Login
@@ -89,13 +90,36 @@ const login = (username, password) =>{
     setToken(null)
   sessionStorage.removeItem ("token")
   
-  
-  
+
   }
+
+
+  //GET ALL CLASSES
+  useEffect(() => {
+    
+    fetch("http://localhost:4000/api/v1/classes", {
+      "method": "GET"
+    })
+    .then((response) => response.json())
+    .then (result => setAllClasses(result))
+    .catch(err => console.error(err));
+  
+  
+      
+  }, []);
+    
+    console.log (allClasses)
+
+  
+
+
+
+
+
 
   return ( 
 
-    <dataContext.Provider value={{ data, setData, login, token, logout}}>
+    <dataContext.Provider value={{ data, setData, login, token, logout, allClasses, setAllClasses}}>
     
     {props.children}
     </dataContext.Provider>

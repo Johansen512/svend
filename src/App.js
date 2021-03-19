@@ -21,7 +21,7 @@ function App() {
     <Router>
     <Welcome path="/" />
     <Home path="Home" />
-    <ClassDetails path="ClassDetails"/>
+    <ClassDetails path="ClassDetails/:id"/>
     <Search path="Search" />
     <Schedule path="Schedule"/>
     <Login path="Login" />
