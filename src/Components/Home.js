@@ -46,26 +46,110 @@ useEffect(() => {
 }, []);
   
   console.log (allClasses)
-   
+
+  //Styling for Header
+
+  const headerstyle=css`
+  display: flex;
+  flex-direction:row;
+  margin:0.5em;
+  `;
+
+//styling for top
+  const topdisplay=css`
+  position:relative;
+  height:404px;
+  width:335px;
+  border-radius: 5%;
+  margin-left: auto;
+  margin-right: auto;
+
+  img{
+  width:100%;
+  Height:100%;
+  object-fit:cover; 
+  overflow:hidden;
+  border-radius: 5%;
+  
+  }
+`;
+
+  const toptext=css`
+  z-index:200;
+  position:absolute;
+  border-top-right-radius:70%;
+  width:70%;
+  height:20%;
+  left:0px;
+  bottom:0px;
+  background-color:var(--color-primary);
+  `;
+
+
+   //styling for slide
+const wrapper=css`
+overflow-x: scroll;
+scroll-behavior: smooth;
+scrollbar-width: none;
+
+`;
+
 
 const AllClassesStyle=css`
 display:flex;
 flex-direction:row;
-
+justify-content:space-evenly;
+width: 150%;
+list-style:none;
 
 `;
 
 const miniboxStyle=css`
-margin: 1em;
-overflow-x: scroll;
+margin: 0.5em;
+height:150px;
+width:200px;
+position:relative;
+
+
 
 img{
-  height:200%;
-  width:200%;
-  
-  
-  
+
+width:100%;
+Height:100%;
+object-fit:cover; 
+overflow:hidden;
+border-radius: 20%;
+
 }
+
+`;
+
+const labelstyle=css`
+display:flex;
+flex-direction: column;
+justify-content: center;
+
+background-color:var(--color-primary);
+bottom:0px;
+z-index:200;
+position:absolute;
+border-top-right-radius:20%;
+border-bottom-left-radius:20%;
+width:100%;
+
+
+p{
+  
+  text-overflow: ellipsis;
+  margin:0.2em;
+  padding-left:0.2em;
+  padding-right:0.2em;
+  overflow: hidden;
+  color:white;
+  white-space: nowrap;
+}
+  
+
 
 
 
@@ -74,25 +158,30 @@ img{
 
     return  (
 <>
-       <div><h2>Popular Classes</h2> <SideNavi />  </div>
+       <div css={headerstyle}><h2>Popular Classes</h2> <SideNavi />  </div>
        
 
-        <div><img src={topClass?.asset.url} alt="" /></div>
-        <button>{topClass?.className}</button>
+        <div css={topdisplay}>
+        <img src={topClass?.asset.url} alt="" />
+        <button css={toptext} >{topClass?.className} <br/> *****</button>
+        </div>
 
-        <div>
+        <div >
           <h3>Classes for you</h3></div>
-
+<div css={wrapper}>
 <ul css={AllClassesStyle}>{allClasses?.map((oneClass => (
 
 
-<div css={miniboxStyle}>
 
-<li>
+
+<li css={miniboxStyle}>
 <img  src={oneClass?.asset.url} alt="" /> 
+<div css={labelstyle}>
 <p>{oneClass?.className}</p>
+<p>*****</p>
+</div>
 
-</li></div>
+</li>
 
 )
 
@@ -102,7 +191,7 @@ img{
 
 </ul>
 
-        
+</div>   
         </>
       );
 }
