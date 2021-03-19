@@ -1,12 +1,14 @@
 /**@jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { useState, useEffect} from "react";
+import { useState, useEffect, useContext} from "react";
+import {Link } from "@reach/router";
+import { dataContext } from "../Contexts/DataContext";
 import SideNavi from "../Components/SideNavi";
 
 const Home = () => {
 
   const [topClass, setTopClass] = useState (null);
-  const [allClasses, setAllClasses] = useState (null);
+  const { allClasses, setAllClasses } = useContext(dataContext);
   
 
 
@@ -43,7 +45,7 @@ useEffect(() => {
 
 
     
-}, []);
+}, [setAllClasses]);
   
   console.log (allClasses)
 
@@ -175,12 +177,13 @@ p{
 
 
 <li css={miniboxStyle}>
+<Link to={`../ClassDetails/${oneClass.id}`}>
 <img  src={oneClass?.asset.url} alt="" /> 
 <div css={labelstyle}>
 <p>{oneClass?.className}</p>
 <p>*****</p>
 </div>
-
+</Link>
 </li>
 
 )
