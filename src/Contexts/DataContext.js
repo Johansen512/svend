@@ -9,11 +9,13 @@ const DataContextProvider = (props) => {
     const [allClasses, setAllClasses] = useState (null);
 
 
+
       //Login
    
 
     
     const [token, setToken]=useState(sessionStorage.getItem("token"));
+    const [getId, setGetId]=useState();
 
 const myToastId = "myToastId";
 
@@ -60,8 +62,13 @@ const login = (username, password) =>{
 })
       .then((response) => response.json())
       .then ((result) => {
+        console.log (result);
         toast.dismiss();
-        sessionStorage.setItem("token", result.token)
+        sessionStorage.setItem("token", result.token);
+        setGetId(result?.userId);
+        sessionStorage.setItem("Id", getId);
+        getId && console.log (getId);
+
         setToken(result.token)})
       
       .catch((err) => {
@@ -109,6 +116,7 @@ const login = (username, password) =>{
   }, []);
     
     console.log (allClasses)
+    
 
   
 
@@ -119,7 +127,7 @@ const login = (username, password) =>{
 
   return ( 
 
-    <dataContext.Provider value={{ data, setData, login, token, logout, allClasses, setAllClasses}}>
+    <dataContext.Provider value={{ data, setData, login, token, getId, logout, allClasses, setAllClasses}}>
     
     {props.children}
     </dataContext.Provider>
