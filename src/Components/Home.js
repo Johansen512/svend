@@ -1,7 +1,7 @@
 /**@jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useState, useEffect, useContext} from "react";
-import {Link } from "@reach/router";
+import {Link, navigate } from "@reach/router";
 import { dataContext } from "../Contexts/DataContext";
 import SideNavi from "../Components/SideNavi";
 
@@ -51,6 +51,13 @@ useEffect(() => {
 
   //Styling for Header
 
+  const headwrapper=css`
+
+
+  
+  
+  `;
+
   const headerstyle=css`
   display: flex;
   flex-direction:row;
@@ -65,6 +72,8 @@ useEffect(() => {
   border-radius: 5%;
   margin-left: auto;
   margin-right: auto;
+  z-index:-300;
+  
 
   img{
   width:100%;
@@ -72,18 +81,19 @@ useEffect(() => {
   object-fit:cover; 
   overflow:hidden;
   border-radius: 5%;
-  
+  z-index:-300;
   }
 `;
 
   const toptext=css`
-  z-index:200;
+  
   position:absolute;
   border-top-right-radius:70%;
   width:70%;
   height:20%;
   left:0px;
   bottom:0px;
+  
   background-color:var(--color-primary);
   `;
 
@@ -93,6 +103,7 @@ const wrapper=css`
 overflow-x: scroll;
 scroll-behavior: smooth;
 scrollbar-width: none;
+margin-left:0.5em;
 
 `;
 
@@ -106,11 +117,15 @@ list-style:none;
 
 `;
 
+
+
 const miniboxStyle=css`
-margin: 0.5em;
+margin:0.3em;
 height:150px;
-width:200px;
+width:300px;
 position:relative;
+z-index:20;
+
 
 
 
@@ -133,7 +148,7 @@ justify-content: center;
 
 background-color:var(--color-primary);
 bottom:0px;
-z-index:200;
+
 position:absolute;
 border-top-right-radius:20%;
 border-bottom-left-radius:20%;
@@ -158,26 +173,34 @@ p{
 `;
 
 
+
     return  (
 <>
+
+<div css={headwrapper}>
        <div css={headerstyle}><h2>Popular Classes</h2> <SideNavi />  </div>
        
-
+<div>
         <div css={topdisplay}>
         <img src={topClass?.asset.url} alt="" />
         <button css={toptext} >{topClass?.className} <br/> *****</button>
         </div>
+        </div>
+
 
         <div >
           <h3>Classes for you</h3></div>
+        
 <div css={wrapper}>
+
+
 <ul css={AllClassesStyle}>{allClasses?.map((oneClass => (
 
 
 
 
-<li css={miniboxStyle}>
-<Link to={`../ClassDetails/${oneClass.id}`}>
+<li css={miniboxStyle} >
+<Link to={`../ClassDetails/${oneClass.id}`} >
 <img  src={oneClass?.asset.url} alt="" /> 
 <div css={labelstyle}>
 <p>{oneClass?.className}</p>
@@ -195,6 +218,7 @@ p{
 </ul>
 
 </div>   
+</div>
         </>
       );
 }
