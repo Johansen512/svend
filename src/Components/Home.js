@@ -1,7 +1,7 @@
 /**@jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useState, useEffect, useContext} from "react";
-import {Link, navigate } from "@reach/router";
+import {Link } from "@reach/router";
 import { dataContext } from "../Contexts/DataContext";
 import SideNavi from "../Components/SideNavi";
 
