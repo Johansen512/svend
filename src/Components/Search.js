@@ -64,16 +64,19 @@ useEffect(() => {
 
 
 
-console.log (trainers?.asset)
+console.log (trainers)
 
+const headlineStyle=css`
+margin:1em;
 
+`;
 
 const miniboxStyle=css`
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:space-around;
-margin:0.3em;
+margin:1em;
 height:150px;
 width:150px;
 position:relative;
@@ -126,6 +129,36 @@ p{
 `;
 
 
+const trainerinfo= css`
+display:flex;
+flex-direction:row;
+height:92px;
+align-items:center;
+padding:0.5em;
+
+p{
+  padding:0.5em;
+  font-weight:bold;
+  font-size:1em;
+  
+}
+
+
+`;
+
+const trainpicsstyle=css`
+
+width:88px;
+height:88px;
+object-fit:cover; 
+overflow:hidden;
+margin: 1em;
+border-radius:25px;
+
+
+`;
+
+
 
 
 
@@ -150,7 +183,7 @@ p{
     {/*Slut Search */}
 
 
-    <h3>Popular Classes</h3>
+    <h3 css={headlineStyle} >Popular Classes</h3>
         
     <ul>
 
@@ -169,27 +202,17 @@ p{
 )) : (<p>Your search for classes did not give any results. Try to search for something else</p>)}
 </ul>
 
-<h3>Popular Trainers</h3>
-<ul>
+
+<h3 css={headlineStyle} >Popular trainers</h3>
+
+{trainers?.map(trainer => (
+  <div css={trainerinfo}>
+<img  src={trainer?.asset.url} alt="" css={trainpicsstyle} /> 
+<p>{trainer?.trainerName}</p>
 
 
 
-{searchResult?.length ? searchResult?.map(getClass => (
-<>
-<li key={getClass.id} css={miniboxStyle}>
-  
- 
-  
-  {getClass.trainer.trainerName}{" "}
-  {getClass.trainer.id}{" "}
-  <img src={trainers?.asset?.url} alt="trainer" /> 
- 
-
-</li></>
-
-)) : (<p>Your search for trainers did not give any results. Try to search for something else</p>)}
-</ul>
-
+  </div> ))}
 
 
 
