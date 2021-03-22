@@ -4,10 +4,18 @@ import { useEffect, useContext, useState} from "react";
 
 
 const Schedule = () => {
+
+
+
+
+
+
+
+
     
     const { token } = useContext(dataContext);
-    const { getId } = useContext(dataContext);
-    const [fnyf, setFnyf] = useState(null);
+    
+    const [thatUser, setThatUser] = useState(null);
 
 
     useEffect(() => {
@@ -19,23 +27,26 @@ const Schedule = () => {
         
       })
       .then(response => response.json())
-      .then (result => setFnyf(result))
+      .then (result => setThatUser(result))
       .catch(err => console.error(err));
 
     
 
 
-    }, [token, getId, setFnyf, fnyf]);
+    }, [token, setThatUser, thatUser]);
 
-    fnyf && console.log (fnyf)
+    
+   
 
     return (   
     <>
 
     <header><div>IKON</div><h1>My Schedule</h1>
     <SideNavi /></header>
-    <h3>{fnyf?.username}</h3>
-    <ul>{fnyf?.classes.map(myClass=> (
+    <h3>{thatUser?.username}</h3>
+
+    {token ?
+    <ul>{thatUser?.classes.map(myClass=> (
 
 
       
@@ -49,7 +60,7 @@ const Schedule = () => {
                 </li>)
                 
                 )}
-        </ul></>
+        </ul> : <p>Du har ikke adgang til denne side</p>}</>
 
 
 
