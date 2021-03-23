@@ -1,6 +1,7 @@
 import SideNavi from "../Components/SideNavi";
 import { dataContext } from "../Contexts/DataContext";
 import { useEffect, useContext, useState} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Schedule = () => {
@@ -41,7 +42,7 @@ const Schedule = () => {
     return (   
     <>
 
-    <header><div>IKON</div><h1>My Schedule</h1>
+    <header><FontAwesomeIcon icon="arrow-left" /><h1>My Schedule</h1>
     <SideNavi /></header>
     <h3>{thatUser?.username}</h3>
 

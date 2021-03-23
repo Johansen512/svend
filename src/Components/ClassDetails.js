@@ -5,6 +5,7 @@ import SideNavi from "../Components/SideNavi";
 //import { navigate} from "@reach/router";
 import { dataContext } from "../Contexts/DataContext";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -121,8 +122,14 @@ const notifyLeave = () => {
 
 //Toast logic slut
 
+//CSS begins
 
+const topwrapper=css`
+z-index:2000;
+color:white;
 
+ 
+ `;
 
 
 
@@ -130,12 +137,16 @@ const notifyLeave = () => {
 
 
 const headerstyle=css`
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-color: white;
-position:absolute;
-z-index:200;
+display: flex;
+  justify-content:space-around;
+  align-items:center;
+  flex-direction:row;
+  margin:0.5em 0em;
+  position:absolute;
+
+h2{
+  margin:0.5em 0em;
+}
 
 
 
@@ -143,7 +154,26 @@ z-index:200;
 
 `;
 
+//Styling for top
 
+const topdisplay=css`
+position:relative;
+height:404px;
+width:100%;
+
+
+
+
+
+img{
+width:100%;
+Height:100%;
+object-fit:cover; 
+overflow:hidden;
+top:0;
+
+}
+`;
 
 
 const picstyle=css`
@@ -163,13 +193,47 @@ bottom:50%;
 const textstyle=css`
 color: var(--color-primary);
 position: absolute;
+top:230px;
+margin-left:1em;
 
 h1{
   font-size:2.25em;
   font-weight:bold;
 }
 
+`;
 
+const icons=css`
+margin-left:0;
+position:absolute;
+bottom:50px;
+margin-left:2em;
+height:11px;
+color:var(--color-primary);
+
+p{
+  position:absolute;
+  margin-left:9em;
+  bottom:-12px;
+  font-size:0.875em;
+font-weight:bold;
+}
+
+`;
+
+const ratebutton=css`
+position:absolute;
+bottom:30px;
+border: 2px solid var(--color-primary);
+border-radius:25px;
+margin-left:20em;
+margin-right:5%;
+font-size:0.875em;
+font-weight:bold;
+height:50px;
+width:109px;
+background-color: rgba(255, 255, 255, 0);
+color:var(--color-primary);
 
 `;
 
@@ -233,13 +297,16 @@ border-style:none;
 
     return ( 
 <>
-        <header css={headerstyle}> <div>IKON</div>     <SideNavi />    </header>
-        <h1 css={textstyle}>{thisClass?.className}</h1>
+        <header css={headerstyle}> <FontAwesomeIcon icon="arrow-left" />  <div css={topwrapper}>  <SideNavi />   </div>  </header>
+        
+
+        <div css={topdisplay}>
 
         <img css={picstyle} src={thisClass?.asset.url} alt={thisClass?.className} />
-
-        <div>STARS </div>  <button>Rate</button>
-
+        <h1 css={textstyle}>{thisClass?.className}</h1>
+        <div>  <span css={icons}>
+<FontAwesomeIcon icon="star"  /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <p>5/5</p></span></div><button css={ratebutton}>RATE</button>  
+</div>
         <p>{thisClass?.classDay}</p>
         <p>{thisClass?.classDescription}</p>
 
