@@ -6,6 +6,7 @@ import SideNavi from "../Components/SideNavi";
 import { dataContext } from "../Contexts/DataContext";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Link } from "@reach/router";
 
 
 
@@ -96,63 +97,53 @@ const leaveIt = (e) => {
   .catch(err => console.error(err));}
 
 
-  //Toast logic
 
-  /*const myToastId = "myToastId";
-
-const notifyLeave = () => {
-
-  
-  toast.success(myToastId, {
-     toastId: "myToastId",
-      render: "Leaving class ...",
-      type: toast.TYPE.INFO,
-      autoClose: false,})
-      
-      
-     
-    
-    
-
-  
-  
-};*/
-
-
-
-//Toast logic slut
 
 //CSS begins
 
 const topwrapper=css`
 z-index:2000;
-color:white;
+padding:0 0.2em;
+left:20em;
+position:absolute;
+top:48px;
+background-color:rgba(255, 255, 255, 0.1);
+
 
  
  `;
 
+const iconStyle=css`
+position:absolute;
+top:50px;
+left:1em;
+color:white;
 
+z-index:2000;
+font-size:2em;
+`;
 
 
 
 
 const headerstyle=css`
-display: flex;
-  justify-content:space-around;
-  align-items:center;
-  flex-direction:row;
-  margin:0.5em 0em;
-  position:absolute;
+  display: flex;
+ justify-content:space-evenly;
+ align-items:center;
+ flex-direction:row;
+ margin:0.5em 2.1em;
+ left:10%;
 
 h2{
-  margin:0.5em 0em;
+
+padding:0 2em;
+
+
 }
 
-
-
-
-
 `;
+
+
 
 //Styling for top
 
@@ -227,7 +218,7 @@ bottom:30px;
 border: 2px solid var(--color-primary);
 border-radius:25px;
 margin-left:20em;
-margin-right:5%;
+right:5em;
 font-size:0.875em;
 font-weight:bold;
 height:50px;
@@ -235,6 +226,17 @@ width:109px;
 background-color: rgba(255, 255, 255, 0);
 color:var(--color-primary);
 
+`;
+
+
+const textS=css`
+margin:0.1em;
+font-size:16px;
+padding:0.2em 0;
+
+`;
+const classHeadline=css`
+font-weight:bold;
 `;
 
 const trainerstyle=css`
@@ -297,18 +299,20 @@ border-style:none;
 
     return ( 
 <>
-        <header css={headerstyle}> <FontAwesomeIcon icon="arrow-left" />  <div css={topwrapper}>  <SideNavi />   </div>  </header>
-        
 
-        <div css={topdisplay}>
+<header css={headerstyle}><Link to="/Home"><FontAwesomeIcon icon="arrow-left" css={iconStyle} /></Link>
+<div css={topwrapper}> <SideNavi /></div></header>
+       
+
+         <div css={topdisplay}>
 
         <img css={picstyle} src={thisClass?.asset.url} alt={thisClass?.className} />
         <h1 css={textstyle}>{thisClass?.className}</h1>
         <div>  <span css={icons}>
 <FontAwesomeIcon icon="star"  /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <p>5/5</p></span></div><button css={ratebutton}>RATE</button>  
 </div>
-        <p>{thisClass?.classDay}</p>
-        <p>{thisClass?.classDescription}</p>
+        <div css={textS}><p css={classHeadline}>{thisClass?.classDay}</p>
+        <p>{thisClass?.classDescription}</p></div>
 
         <section css={trainerstyle}>
 
