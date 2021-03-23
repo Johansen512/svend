@@ -3,9 +3,7 @@ import { css } from '@emotion/react';
 import { dataContext } from "../Contexts/DataContext";
 import {useContext} from "react";
 import { useForm } from "react-hook-form";
-//import { navigate, Redirect, redirectTo } from "@reach/router";
-/*import { toast } from "react-toastify";
-import Mytoast from "./Mytoast";*/
+
 
 
 const Form = () => {
@@ -16,10 +14,10 @@ const Form = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {console.log (data.username, data.password);
 
-      //data.preventDefault()
+      
 
       console.log (data)
-     // toast.dark("logger ind ...")
+    
       let username = data.username;
       let password = data.password;
       login (username, password);

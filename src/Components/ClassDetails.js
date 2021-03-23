@@ -2,7 +2,6 @@
 import { css } from '@emotion/react';
 import { useState, useEffect, useContext} from "react";
 import SideNavi from "../Components/SideNavi";
-//import { navigate} from "@reach/router";
 import { dataContext } from "../Contexts/DataContext";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,15 +14,10 @@ const ClassDetails = ({id}) => {
 
   const { token } = useContext(dataContext);
  
-//const [loggedUser, setLoggedUser] = useState()
+
   const [thisClass, setThisClass] = useState ();
   const [thisTrain, setThisTrain] = useState ();
-  //const [newCourse, setNewCourse ] = useState ();
-  //const [newDay, setNewDay ] = useState ();
- // const { id } = useParams()
- // console.log (id)
- //const [getpic, setGetpic] = useState ();
- //const [cname, setCname] = useState ("")
+ 
 
 
  
