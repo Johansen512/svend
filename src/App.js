@@ -12,6 +12,12 @@ import SideNavi from "./Components/SideNavi";
 import ClassDetails from "./Components/ClassDetails";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faArrowLeft, faStar } from '@fortawesome/free-solid-svg-icons'
+
+
+library.add(fab, faArrowLeft, faStar)
 
 function App() {
   return (

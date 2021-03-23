@@ -5,6 +5,7 @@ import { useEffect, useState, useContext} from "react";
 import { dataContext } from "../Contexts/DataContext";
 import {Link } from "@reach/router";
 import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Search = ( ) => {
 
@@ -66,29 +67,82 @@ useEffect(() => {
 
 console.log (trainers)
 
+const wrapper=css`
+
+
+`;
+
+const headerstyle=css`
+  display: flex;
+ justify-content:space-evenly;
+ align-items:center;
+ flex-direction:row;
+ margin:0.5em 2.1em;
+ left:10%;
+
+h2{
+
+padding:0 2em;
+
+
+}
+
+`;
+
+const formstyle=css`
+height:50px;
+width:335px;
+margin-left:10%;
+border:1px solid #D4D4D4;
+border-radius:25px;
+text-align:center;
+`;
+
+const topwrapper=css`
+z-index:2000;
+padding:0 2em;
+padding-left:3em;
+
+`;
+
 const headlineStyle=css`
-margin:1em;
+margin:1em 6em;
+
+`;
+
+const sectionwrapper=css`
+overflow-x: scroll;
+scroll-behavior: smooth;
+scrollbar-width: none;
+margin-left:1.5em;
+
+
+`;
+
+const miniboxwrapper=css`
+display:flex;
+flex-direction:row-reverse;
+align-items:center;
+justify-content:space-evenly;
+width: 150%;
+list-style:none;
+padding:0.3em;
 
 `;
 
 const miniboxStyle=css`
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:space-around;
-margin:1em;
+
+margin:0.3em;
 height:150px;
 width:150px;
 position:relative;
-z-index:20;
-
 
 
 
 img{
 
 width:100%;
-Height:130%;
+Height:100%;
 object-fit:cover; 
 overflow:hidden;
 border-radius: 20%;
@@ -103,7 +157,7 @@ flex-direction: column;
 justify-content: center;
 
 background-color:var(--color-primary);
-bottom:-10px;
+bottom:0px;
 
 position:absolute;
 border-top-right-radius:20%;
@@ -118,8 +172,16 @@ p{
   padding-left:0.2em;
   padding-right:0.2em;
   overflow: hidden;
-  color:white;
+  color:#0A0A0A;
   white-space: nowrap;
+  font-size:0.75em;
+  font-weight:bold;
+}
+
+span{
+  margin:0.4em;
+  font-size:0.75em;
+  color:#000000;
 }
   
 
@@ -127,6 +189,7 @@ p{
 
 
 `;
+
 
 
 const trainerinfo= css`
@@ -166,41 +229,46 @@ border-radius:25px;
 
 
     return (
-<>
-<SideNavi />
+<><div css={wrapper}>
+  
+  <div css={headerstyle}><FontAwesomeIcon icon="arrow-left" /><h2>Search</h2><div css={topwrapper}><SideNavi /></div></div>
 
 
-        <h2>Søg her!</h2>
+        
 
 
-<form> <input 
+<form > <input css={formstyle}
     type="search" 
     name="search" 
     id="search" 
-    placeholder="Search ..." 
+    placeholder="Search classes..." 
     ref={register} /></form>
 
     {/*Slut Search */}
 
 
     <h3 css={headlineStyle} >Popular Classes</h3>
-        
-    <ul>
+        <section css={sectionwrapper}>
+    <ul css={miniboxwrapper}>
 
 {searchResult?.length ? searchResult?.map(getClass => (
 <>
+
 <li key={getClass.id} css={miniboxStyle} >
 <Link to={`../ClassDetails/${getClass.id}`} >
 <img  src={getClass?.asset.url} alt="" /> 
 <div css={labelstyle}>
 <p>{getClass?.className}</p>
-<p>*****</p>
+<span>
+<FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> <FontAwesomeIcon icon="star" /> </span>
 </div>
 </Link>
-</li></>
+</li>
+
+</>
 
 )) : (<p>Your search for classes did not give any results. Try to search for something else</p>)}
-</ul>
+</ul></section>
 
 
 <h3 css={headlineStyle} >Popular trainers</h3>
@@ -227,7 +295,7 @@ border-radius:25px;
 
 
        
-         </>
+</div> </>
       );
 }
  

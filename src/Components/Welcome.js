@@ -7,22 +7,26 @@ const Welcome = () => {
 
     const wrapper=css`
 
-   height:100vh;
+   
   
    `;
 
    const top=css`
    
+   overflow:hidden;
+
    
    `;
     
     
     const backgroundstyle = css`
     position:relative;
-    height:150%;
-    width:300%;
-    Top:0;
-    Left:-100%;
+    height:1000px;
+    width:1500px;
+    Top:0px;
+    Left:-130%;
+   
+    
     
     
     
@@ -37,7 +41,7 @@ const Welcome = () => {
     align-items:left;
     position:absolute;
     color: white;
-    top:30%;
+    top:40%;
     line-height:400%;
     padding-left:20%;
     margin:0;
@@ -67,13 +71,15 @@ p{
 
    const bottom=css`
    display:flex;
+   
    `;
 
 const imagestyle=css`
 height:375px;
-width:100%;
+width:565px;
+left:-20%;
 position:relative;
-bottom:420px;
+bottom:500px;
 
     
 
@@ -87,8 +93,8 @@ bottom:420px;
        width:178px;
        height:50px;
        border-radius:25px;
-       bottom:-10%;
-       left:40%;
+       bottom:-180px;
+       left:30%;
         position:absolute;
 
         p{
