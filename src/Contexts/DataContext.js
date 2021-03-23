@@ -14,7 +14,7 @@ const DataContextProvider = (props) => {
    
 
     
-    const [token, setToken]=useState(sessionStorage.getItem("token"));
+    const [token, setToken]=useState(localStorage.getItem("token"));
     
 
 const myToastId = "myToastId";
@@ -43,7 +43,7 @@ const notify = () => {
   
 };
     
-//check sessionstorage for Login
+//check localstorage for Login
 
 
 
@@ -64,7 +64,7 @@ const login = (username, password) =>{
       .then ((result) => {
         console.log (result);
         toast.dismiss();
-        sessionStorage.setItem("token", result.token);
+        localStorage.setItem("token", result.token);
       
 
         setToken(result.token)})
@@ -93,7 +93,7 @@ const login = (username, password) =>{
   
   const logout = () => {
     setToken(null)
-  sessionStorage.removeItem ("token")
+  localStorage.removeItem ("token")
   
 
   }

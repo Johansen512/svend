@@ -231,7 +231,7 @@ border-radius:25px;
     return (
 <><div css={wrapper}>
   
-  <div css={headerstyle}><FontAwesomeIcon icon="arrow-left" /><h2>Search</h2><div css={topwrapper}><SideNavi /></div></div>
+  <div css={headerstyle}><Link to="/Home"><FontAwesomeIcon icon="arrow-left" /></Link><h2>Search</h2><div css={topwrapper}><SideNavi /></div></div>
 
 
         
