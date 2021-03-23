@@ -33,11 +33,11 @@ const Search = ( ) => {
  console.log(getClasses)
 
 /*SearchResult */
-
+// eslint-disable-next-line
 const searchResult = getClasses?.filter((getClass) => { if (searchTerm === "") return getClass;
 if (getClass?.className.toLowerCase().includes(searchTerm.toLowerCase())) return getClass;
-if (getClass?.classDescription.toLowerCase().includes(searchTerm.toLowerCase())) return getClass 
-if (getClass?.classDay.toLowerCase().includes(searchTerm.toLowerCase())) return getClass
+if (getClass?.classDescription.toLowerCase().includes(searchTerm.toLowerCase())) return getClass; 
+if (getClass?.classDay.toLowerCase().includes(searchTerm.toLowerCase())) return getClass;
 if (getClass?.trainer.trainerName.toLowerCase().includes(searchTerm.toLowerCase())) return getClass;
 
 });
