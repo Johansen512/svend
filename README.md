@@ -13,7 +13,7 @@ TRAINER - En web-app til fittnesscentre
 
 [Link til site http://localhost:3000/]
 
-[Link til trainer api http://localhost:3000/ ]
+[Link til trainer api http://localhost:4000/ ]
 
 [Link til produktionsversion: https://webelieveinyou.netlify.app ]
 
