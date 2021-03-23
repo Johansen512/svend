@@ -93,6 +93,7 @@ height:50px;
 width:335px;
 margin-left:10%;
 border:1px solid #D4D4D4;
+outline: none;
 border-radius:25px;
 text-align:center;
 `;
