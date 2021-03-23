@@ -1,8 +1,7 @@
 /**@jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import SideNavi from "../Components/SideNavi";
-import { useEffect, useState, useContext} from "react";
-import { dataContext } from "../Contexts/DataContext";
+import { useEffect, useState} from "react";
 import {Link } from "@reach/router";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
