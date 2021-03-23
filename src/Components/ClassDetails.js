@@ -17,7 +17,28 @@ const ClassDetails = ({id}) => {
 
   const [thisClass, setThisClass] = useState ();
   const [thisTrain, setThisTrain] = useState ();
+  //const [thatUser, setThatUser] = useState(null);
  
+//Get single user
+/*udkommenteret fordi jeg ikke kan nå at lave logikken
+til sammenlign user.classes.weekday med thisClass.classday
+
+useEffect(() => {
+fetch(`http://localhost:4000/api/v1/users/1`, {
+    "method": "GET",
+    "headers": {
+     
+      "Authorization": `Bearer ${ token }`, }
+    
+  })
+  .then(response => response.json())
+  .then (result => setThatUser(result))
+  .catch(err => console.error(err));
+
+
+
+
+}, [token, setThatUser, thatUser]);*/
 
 
  
