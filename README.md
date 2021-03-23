@@ -1,70 +1,191 @@
-# Getting Started with Create React App
+# Projektdokumentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Navn: Christian Johansen
 
-## Available Scripts
+##### Hold: 3
 
-In the project directory, you can run:
+##### Uddannelse: Webudvikler
 
-### `npm start`
+##### Uddannelsessted: Roskilde tekniske skole
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Projektdokumentation
 
-### `npm test`
+#### Navn:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Hold:
 
-### `npm run build`
+##### Uddannelse: Webudvikler
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### Uddannelsessted: Roskilde tekniske skole
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+TRAINER - En web-app til fittnesscentre
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Link til site (localhost:3000)](http://localhost:3000/)
 
-### `npm run eject`
+[Link til productionsversion: netlify-noget ]
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Brugernavn: user1
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Password: 1234
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Teknologier:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   HTML
+-   CSS
+-   JavaScript
 
-## Learn More
+-   via React
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Ekstra React-pakker:
 
-### Code Splitting
+[Link til Emotion/Core: https://www.npmjs.com/package/@emotion/css] (https://www.npmjs.com/package/@emotion/css)
+[Link til Reach Router: https://www.npmjs.com/package/@reach/router] (https://www.npmjs.com/package/@reach/router)
+[Link til React-Hook-Form:   https://www.npmjs.com/package/react-hook-form] (https://www.npmjs.com/package/react-hook-form)
+[Link til Fontawesome til React: https://fontawesome.com/how-to-use/on-the-web/using-with/react]( https://fontawesome.com/how-to-use/on-the-web/using-with/react)
+[Link til React-Toastify: https://www.npmjs.com/package/react-toastify](https://www.npmjs.com/package/react-toastify)
+[Link til React-burger-sidenav: https://www.npmjs.com/package/react-burger-sidenav]( https://www.npmjs.com/package/react-burger-sidenav)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Vurdering af egen indsats & gennemførelse af opgaveforløbet (Arbejdsgangen)
 
-### Making a Progressive Web App
+Når jeg arbejder alene bruger jeg ikke kanban, scrum eller lignende planlægningsværktøjer, men det mere old school: papir & blyant. Det er uhyre effektivt og der kan rettes, laves diagrammer og meget andet. 
+ 
+Tidligere projekter har jeg arbejdet med en struktur der kunne se således ud:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Planlægning og overblik
+Opbygning af struktur (html)
+Opbygning af funktion og logik (javaScript)
+Tilretning og … smukkesering (CSS)
+Evaluering og oprydning 
 
-### Advanced Configuration
+Men dette projekt var opbygget på en måde, så man var nødt til at gøre mere ved hver side for kunne komme videre til den næste side. F.eks. var billederne som blev hentet, både lokalt og via api’et, lagt op i flere forskellige, store størrelser, så man var nødt til at style på dem, for at de kunne fungere som f.eks. knapper eller link-element. Så mit arbejdsstruktur har derfor været mere som “perler på en snor” … altså først Welcome, så Home, osv. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### En beskrivelse af særlige punkter til bedømmelse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Jeg synes personligt at den indbyggede funktionelle logik er noget af charmen ved at kode:
 
-### `npm run build` fails to minify
+F.eks. logik der viser eller fjerner knapper: her på detalje-siden:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+````
+ { token &&  
+        
+       ( (!thisClass?.users.find(user => user.username  === "user1")) && 
+        
+        <div><form onSubmit={justDoIt}>
+
+        <button css={buttonstyle}>Sign Up!</button> 
+
+        </form></div>)}
+
+        { token &&  
+      ((thisClass?.users.find(user => user.username  === "user1")) && 
+        
+       <div><form onSubmit={leaveIt}>
+         
+
+       <button css={buttonstyle}>Leave Class</button> 
+
+
+
+        </form> </div> )}
+
+```
+
+### Argumentation for de valg jeg selvstændigt har truffet under løsningen af opgaven:
+
+Mja, der skulle jo vælges en "burger-menu" med fuldt overlay. Dem har vi jo bygget masser af ... i vanilla JS, men aldrig i React. Så da valget stod mellem at "gen-lære" at kode burgermenuer ... eller hente en npm-pakke. Så bør valget altid falde på pakken.
+Jeg har så valgt en meget skrabet model, React-burger-sidenav. Den har ikke det store forkromede udstyr, men til gengæld er den nærmest "plug - and -play" og får jobbet gjort.
+
+---
+
+
+
+
+[Link til site (localhost:3000)](http://localhost:3000/)
+
+[Link til productionsversion: (localhost:2000/login)](http://localhost:2000/login)
+
+Brugernavn: user1
+
+Password: 1234
+
+## Teknologier:
+
+-   HTML
+-   CSS
+-   JavaScript
+
+-   via React
+
+---
+
+### Ekstra React-pakker:
+
+Emotion/Core:          https://www.npmjs.com/package/@emotion/css
+Reach Router:          https://www.npmjs.com/package/@reach/router
+React-Hook-Form:       https://www.npmjs.com/package/react-hook-form
+Fontawesome til React: https://fontawesome.com/how-to-use/on-the-web/using-with/react
+React-Toastify:        https://www.npmjs.com/package/react-toastify
+React-burger-sidenav:  https://www.npmjs.com/package/react-burger-sidenav
+
+
+
+### Vurdering af egen indsats & gennemførelse af opgaveforløbet (Arbejdsgangen)
+
+Når jeg arbejder alene bruger jeg ikke kanban, scrum eller lignende planlægningsværktøjer, men det mere old school: papir & blyant. Det er uhyre effektivt og der kan rettes, laves diagrammer og meget andet. 
+ 
+Tidligere projekter har jeg arbejdet med en struktur der kunne se således ud:
+
+Planlægning og overblik
+Opbygning af struktur (html)
+Opbygning af funktion og logik (javaScript)
+Tilretning og … smukkesering (CSS)
+Evaluering og oprydning 
+
+Men dette projekt var opbygget på en måde, så man var nødt til at gøre mere ved hver side for kunne komme videre til den næste side. F.eks. var billederne som blev hentet, både lokalt og via api’et, lagt op i flere forskellige, store størrelser, så man var nødt til at style på dem, for at de kunne fungere som f.eks. knapper eller link-element. Så mit arbejdsstruktur har derfor været mere som “perler på en snor” … altså først Welcome, så Home, osv. 
+
+
+### En beskrivelse af særlige punkter til bedømmelse
+
+Jeg synes personligt at den indbyggede funktionelle logik er noget af charmen ved at kode:
+
+F.eks. logik der viser eller fjerner knapper: her på detalje-siden:
+
+````
+ { token &&  
+        
+       ( (!thisClass?.users.find(user => user.username  === "user1")) && 
+        
+        <div><form onSubmit={justDoIt}>
+
+        <button css={buttonstyle}>Sign Up!</button> 
+
+        </form></div>)}
+
+        { token &&  
+      ((thisClass?.users.find(user => user.username  === "user1")) && 
+        
+       <div><form onSubmit={leaveIt}>
+         
+
+       <button css={buttonstyle}>Leave Class</button> 
+
+
+
+        </form> </div> )}
+
+```
+
+### Argumentation for de valg jeg selvstændigt har truffet under løsningen af opgaven:
+
+Mja, der skulle jo vælges en "burger-menu" med fuldt overlay. Dem har vi jo bygget masser af ... i vanilla JS, men aldrig i React. Så da valget stod mellem at "gen-lære" at kode burgermenuer ... eller hente en npm-pakke. Så bør valget altid falde på pakken.
+Jeg har så valgt en meget skrabet model, React-burger-sidenav. Den har ikke det store forkromede udstyr, men til gengæld er den nærmest "plug - and -play" og får jobbet gjort.
+
+---
+
+
