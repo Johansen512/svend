@@ -61,7 +61,7 @@ useEffect(() => {
   `;
 
   //Styling for Header
-
+//more he
 
 
   const headwrapper=css`
@@ -239,7 +239,7 @@ span{
 <div >
 
 <div css={headwrapper}>
-       <div css={headerstyle}><h2>Popular Classes</h2><div css={topwrapper}> <SideNavi /></div>  </div>
+       <div css={headerstyle}><h2>Unpopular Classes</h2><div css={topwrapper}> <SideNavi /></div>  </div>
        
 <div>
         <div css={topdisplay}>
